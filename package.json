@@ -1,0 +1,35 @@
+{
+  "name": "@neume-network/crawl-path-blueprints",
+  "version": "0.0.1",
+  "description": "This repository contains tested crawl paths that can be used by neume network users to cookie-cut an indexing strategy.",
+  "main": "./src/",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neume-network/crawl-path-blueprints.git"
+  },
+  "keywords": [
+    "blue",
+    "prints",
+    "music",
+    "nfts",
+    "neume",
+    "network",
+    "metadata",
+    "indexing"
+  ],
+  "author": "Tim Daubenschütz <tim@daubenschuetz.de> (https://timdaub.github.io/)",
+  "license": "GPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/neume-network/crawl-path-blueprints/issues"
+  },
+  "homepage": "https://github.com/neume-network/crawl-path-blueprints#readme",
+  "devDependencies": {
+    "ava": "4.3.3"
+  }
+}
