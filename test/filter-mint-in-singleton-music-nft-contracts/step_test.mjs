@@ -6,7 +6,7 @@ import { resolve } from "path";
 import test from "ava";
 import { boot } from "@neume-network/core";
 
-import crawlPath from "../../src/filter-mint-in-singleton-music-nft-contracts/crawl_path.mjs";
+import step from "../../src/filter-mint-in-singleton-music-nft-contracts/step.mjs";
 
 const teardown = async (t) => {
   try {
@@ -31,7 +31,17 @@ const config = {
 test("running a crawl path that extracts a zora NFT mint", async (t) => {
   const start = 15458985;
   const end = start + 1;
-  const path = crawlPath(start, end);
+  const path = [
+    [
+      {
+        name: "call-block-logs",
+        extractor: {
+          args: [start, end],
+        },
+      },
+    ],
+    step,
+  ];
   await boot(path, config);
 
   const content = (

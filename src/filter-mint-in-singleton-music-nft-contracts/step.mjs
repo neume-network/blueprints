@@ -33,16 +33,11 @@ const mapStep = (log) => ({
   },
   log,
 });
-export default (start, end) => [
-  [
-    {
-      name: "call-block-logs",
-      extractor: {
-        args: [start, end],
-      },
-      transformer: {
-        args: [null, filterStep, mapStep],
-      },
+export default [
+  {
+    name: "call-block-logs",
+    transformer: {
+      args: [null, filterStep, mapStep],
     },
-  ],
+  },
 ];
