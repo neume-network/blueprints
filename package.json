@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "ava"
+    "test": "ava --verbose --serial"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,10 @@
   },
   "homepage": "https://github.com/neume-network/crawl-path-blueprints#readme",
   "devDependencies": {
-    "ava": "4.3.3"
+    "ava": "4.3.3",
+    "dotenv": "16.0.2"
+  },
+  "ava": {
+    "require": ["dotenv/config"]
   }
 }

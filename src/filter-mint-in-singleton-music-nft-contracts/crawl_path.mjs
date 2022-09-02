@@ -22,28 +22,27 @@ const transferEventSelector =
 const emptyBytes32 =
   "0x0000000000000000000000000000000000000000000000000000000000000000";
 
-const filter = (log) =>
+const filterStep = (log) =>
   log.topics[0] === transferEventSelector &&
   log.topics[1] === emptyBytes32 &&
   Object.keys(contracts).includes(log.address);
 
-const map = (log) => ({
+const mapStep = (log) => ({
   metadata: {
     platform: contracts[log.address],
   },
+  log,
 });
-const filterStep = {
-  name: "call-block-logs",
-  transformer: {
-    args: [null, filter, map],
-  },
-};
-export default [
+export default (start, end) => [
   [
     {
       name: "call-block-logs",
-      extractor: {},
+      extractor: {
+        args: [start, end],
+      },
+      transformer: {
+        args: [null, filterStep, mapStep],
+      },
     },
   ],
-  [filterStep],
 ];
