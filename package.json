@@ -34,6 +34,11 @@
     "dotenv": "16.0.2"
   },
   "ava": {
-    "require": ["dotenv/config"]
+    "require": [
+      "dotenv/config"
+    ]
+  },
+  "dependencies": {
+    "eth-fun": "0.9.1"
   }
 }

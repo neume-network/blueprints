@@ -6,7 +6,7 @@ import { resolve } from "path";
 import test from "ava";
 import { boot } from "@neume-network/core";
 
-import step from "../../src/filter-mint-in-singleton-music-nft-contracts/step.mjs";
+import step from "../../src/soundxyz-filter-created-artist/step.mjs";
 
 const teardown = async (t) => {
   try {
@@ -28,8 +28,8 @@ const config = {
   },
 };
 
-test("running a crawl path that extracts a zora NFT mint", async (t) => {
-  const start = 15458985;
+test("running a crawl path that extracts artist created event", async (t) => {
+  const start = 15454602;
   const end = start + 1;
   const path = [
     [
@@ -48,8 +48,5 @@ test("running a crawl path that extracts a zora NFT mint", async (t) => {
     await readFile(resolve(env.DATA_DIR, "call-block-logs-transformation"))
   ).toString();
   const result = JSON.parse(content);
-  t.is(
-    result[0].log.topics[3],
-    "0x0000000000000000000000000000000000000000000000000000000000007c69"
-  );
+  t.is(result[0].address, "0xb8dfff430eb204eeeae713a9d4642352e3df6887");
 });
